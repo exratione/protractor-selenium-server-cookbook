@@ -1,0 +1,4 @@
+# IDEs
+.settings
+.project
+*sublime-*
