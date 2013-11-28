@@ -7,7 +7,7 @@ applications via [Protractor][0]:
 
   * Protractor
   * Selenium Standalone Server
-  * Xfvb
+  * Xvfb
   * Chromium
   * Firefox
   * PhantomJS
@@ -22,7 +22,7 @@ build process.
 Selenium and Xvfb Services
 --------------------------
 
-The protractor-selenium-server::services recipe sets up services for both Xfvb
+The protractor-selenium-server::services recipe sets up services for both Xvfb
 and the Selenium standalone server.
 
 Xvfb is a minimal X Server implementation to allow headless testing of browsers,
