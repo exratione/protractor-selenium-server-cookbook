@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v0.0.3
+------
+
+  * Create home directory for Selenium user. Needed for Firefox to work.
+
 v0.0.2
 ------
 

@@ -67,7 +67,16 @@ package 'libfontconfig1-dev'
 # ----------------------------------------------------------------------------
 
 # This user will own the logs, the install directory, and the service process.
-user node['protractor-selenium-server']['selenium']['user']
+# Browsers will run as this user, since Selenium is piloting them.
+user node['protractor-selenium-server']['selenium']['user'] do
+  # In Debian/Ubuntu you need both supports and home defined to create the
+  # home directory.
+  supports :manage_home => true
+  home "/home/#{node['protractor-selenium-server']['selenium']['user']}"
+  # Not strictly necessary, but helpful when debugging as this user.
+  shell '/bin/bash'
+end
+
 # The Selenium standalone server JAR will be downloaded to this directory.
 directory node['protractor-selenium-server']['selenium']['install-dir'] do
   owner node['protractor-selenium-server']['selenium']['user']
