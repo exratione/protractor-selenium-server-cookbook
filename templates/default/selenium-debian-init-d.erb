@@ -29,6 +29,10 @@ DAEMON_OPTS="-Djava.security.egd=file:/dev/./urandom $DAEMON_OPTS"
 # The value for DISPLAY must match that used by the running instance of Xvfb.
 export DISPLAY=:<%= node['protractor-selenium-server']['xvfb']['display'] %>
 
+# Make sure that the PATH includes the location of the chromedriver binary.
+# This is necessary for tests with Chromium to work.
+export PATH=$PATH:/usr/local/bin
+
 case "$1" in
     start)
         echo "Starting $DESC: "

@@ -28,6 +28,8 @@ end
 # Install Firefox.
 # ----------------------------------------------------------------------------
 
+# The dbus-x11 package prevents some errors from Firefox.
+package 'dbus-x11'
 package 'firefox'
 
 # ----------------------------------------------------------------------------

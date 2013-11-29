@@ -4,4 +4,4 @@ default['protractor-selenium-server']['selenium']['user'] = 'selenium'
 default['protractor-selenium-server']['selenium']['log-dir']= '/var/log/selenium'
 
 # The value of the DISPLAY environment variable.
-default['protractor-selenium-server']['xfvb']['display'] = '0';
+default['protractor-selenium-server']['xfvb']['display'] = '10';

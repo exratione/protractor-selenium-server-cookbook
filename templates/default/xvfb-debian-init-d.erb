@@ -3,7 +3,7 @@
 # Xvfb init script for Debian-based distros.
 #
 # The display number used must match the DISPLAY environment variable used
-# for other applications that will use Xvfb. e.g. ':0', ':99'.
+# for other applications that will use Xvfb. e.g. ':10'.
 #
 # From: https://github.com/gmonfort/xvfb-init/blob/master/Xvfb
 #
@@ -21,8 +21,11 @@ NAME=Xvfb
 DESC="$NAME - X Virtual Frame Buffer"
 SCRIPTNAME=/etc/init.d/$NAME
 XVFB=/usr/bin/Xvfb
-XVFB_ARGS=":<%= node['protractor-selenium-server']['xvfb']['display'] %> -noreset -ac -screen 0 1024x768x16"
 PIDFILE=/var/run/${NAME}.pid
+
+XVFB_ARGS=:<%= node['protractor-selenium-server']['xvfb']['display'] %>
+XVFB_ARGS="$XVFB_ARGS -extension RANDR"
+XVFB_ARGS="$XVFB_ARGS -noreset -ac -screen <%= node['protractor-selenium-server']['xvfb']['display'] %> 1024x768x16"
 
 set -e
 

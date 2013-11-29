@@ -29,6 +29,25 @@ Xvfb is a minimal X Server implementation to allow headless testing of browsers,
 and the services ensure that it and Selenium coordinate sufficiently to run end
 to end tests in Chromium and Firefox on a headless server.
 
+Firefox Notes
+-------------
+
+Firefox will issue the following complaint if launched standalone on a display
+managed by Xvfb:
+
+```
+ Xlib: extension "RANDR" missing on display ":10"
+```
+
+The recommended solution is to launch Xvfb with this option:
+
+```
+-extension RANDR
+```
+
+This, however, does not at this time prevent the above error message.
+Fortunately the message is not fatal and Firefox will still work just fine.
+
 PhantomJS Notes
 ---------------
 

@@ -1,7 +1,7 @@
 name              'protractor-selenium-server'
 license           'MIT'
 description       'Set up a machine to be ready to use Protractor for AngularJS end to end testing.'
-version           '0.0.1'
+version           '0.0.2'
 recipe            'protractor', 'Set up the machine with Protractor and its dependencies.'
 recipe            'protractor::services', 'Set up services for Xvfb and Selenium.'
 
@@ -36,4 +36,4 @@ attribute 'protractor-selenium-server/selenium/log-dir',
 attribute 'protractor-selenium-server/xvfb/display',
   :display_name => 'DISPLAY environment value',
   :description => 'Value of the DISPLAY environment property used for the Xvfb service.',
-  :default => '0'
+  :default => '10'
