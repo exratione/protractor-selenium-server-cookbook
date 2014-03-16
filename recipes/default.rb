@@ -85,7 +85,9 @@ end
 
 # Obtain the Selenium standalone server JAR file.
 remote_file "#{node['protractor-selenium-server']['selenium']['install-dir']}/selenium-server-standalone-#{node['protractor-selenium-server']['selenium']['version']}.jar" do
-  source "http://selenium.googlecode.com/files/selenium-server-standalone-#{node['protractor-selenium-server']['selenium']['version']}.jar"
+  # URL of the form:
+  # http://selenium-release.storage.googleapis.com/2.40/selenium-server-standalone-2.40.0.jar
+  source "http://selenium-release.storage.googleapis.com/#{node['protractor-selenium-server']['selenium']['version'].split('.').reverse.drop(1).reverse.join('.')}/selenium-server-standalone-#{node['protractor-selenium-server']['selenium']['version']}.jar"
   action :create_if_missing
   mode 0644
 end

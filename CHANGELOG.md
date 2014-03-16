@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v0.0.4
+------
+
+  * Update default Selenium version to 2.40.0.
+  * Fix Selenium jarfile download. It'd be nice if people stopped moving their download URLs.
+
 v0.0.3
 ------
 

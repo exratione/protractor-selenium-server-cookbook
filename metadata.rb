@@ -1,7 +1,7 @@
 name              'protractor-selenium-server'
 license           'MIT'
 description       'Set up a machine to be ready to use Protractor for AngularJS end to end testing.'
-version           '0.0.3'
+version           '0.0.4'
 recipe            'protractor', 'Set up the machine with Protractor and its dependencies.'
 recipe            'protractor::services', 'Set up services for Xvfb and Selenium.'
 
@@ -21,7 +21,7 @@ attribute 'protractor-selenium-server/selenium/install-dir',
 attribute 'protractor-selenium-server/selenium/version',
   :display_name => 'Selenium version',
   :description => 'Selenium standalone server version.',
-  :default => '2.37.0'
+  :default => '2.40.0'
 
 attribute 'protractor-selenium-server/selenium/user',
   :display_name => 'Selenium user',
