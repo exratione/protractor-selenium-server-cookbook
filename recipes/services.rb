@@ -8,7 +8,7 @@
 
 # The service will be notified to start once the template file is placed.
 service 'xvfb' do
-  supports :restart => true
+  supports [:status, :restart]
   action :nothing
 end
 
@@ -37,7 +37,7 @@ end
 
 # The service will be notified to start once the template file is placed.
 service 'selenium-standalone' do
-  supports :restart => true
+  supports [:status, :restart]
   action :nothing
 end
 
@@ -51,5 +51,3 @@ template 'selenium-standalone' do
   notifies :enable, 'service[selenium-standalone]'
   notifies :start, 'service[selenium-standalone]'
 end
-
-# TODO: init scripts for other distributions.

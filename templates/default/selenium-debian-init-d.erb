@@ -35,22 +35,29 @@ export PATH=$PATH:/usr/local/bin
 
 case "$1" in
     start)
-        echo "Starting $DESC: "
+        echo "Starting $DESC."
         start-stop-daemon -c $USER --start --background \
             --pidfile $PID_FILE --make-pidfile --exec $JAVA -- $DAEMON_OPTS
         ;;
 
     stop)
-        echo  "Stopping $DESC: "
+        echo  "Stopping $DESC."
         start-stop-daemon --stop --pidfile $PID_FILE
+        rm -f $PID_FILE
         ;;
 
     restart)
-        echo "Restarting $DESC: "
-        start-stop-daemon --stop --pidfile $PID_FILE
-        sleep 1
-        start-stop-daemon -c $USER --start --background \
-            --pidfile $PID_FILE  --make-pidfile --exec $JAVA -- $DAEMON_OPTS
+        $0 stop && sleep 2 && $0 start
+        ;;
+
+    status)
+        if [ -f $PID_FILE ]; then
+            echo "$DESC is running."
+            exit 0
+        else
+            echo "$DESC is not running."
+            exit 3
+        fi
         ;;
 
     *)

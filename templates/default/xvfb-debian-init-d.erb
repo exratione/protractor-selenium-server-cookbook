@@ -25,7 +25,7 @@ PIDFILE=/var/run/${NAME}.pid
 
 XVFB_ARGS=:<%= node['protractor-selenium-server']['xvfb']['display'] %>
 XVFB_ARGS="$XVFB_ARGS -extension RANDR"
-XVFB_ARGS="$XVFB_ARGS -noreset -ac -screen <%= node['protractor-selenium-server']['xvfb']['display'] %> 1024x768x16"
+XVFB_ARGS="$XVFB_ARGS -noreset -ac -screen <%= node['protractor-selenium-server']['xvfb']['display'] %> <%= node['protractor-selenium-server']['xvfb']['resolution'] %>"
 
 set -e
 
@@ -43,8 +43,15 @@ fi
 case "$1" in
   start)
     log_daemon_msg "Starting $DESC" "$NAME"
-    if start-stop-daemon --start --quiet --oknodo --pidfile $PIDFILE \
-          --background --make-pidfile --exec $XVFB -- $XVFB_ARGS ; then
+    start-stop-daemon \
+      --start \
+      --quiet \
+      --oknodo \
+      --pidfile $PIDFILE \
+      --background \
+      --make-pidfile \
+      --exec $XVFB -- $XVFB_ARGS
+    if [ $? -eq 0 ]; then
       log_end_msg 0
     else
       log_end_msg 1
@@ -54,7 +61,12 @@ case "$1" in
 
   stop)
     log_daemon_msg "Stopping $DESC" "$NAME"
-    start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE --retry 5
+    start-stop-daemon \
+     --stop \
+     --quiet \
+     --oknodo \
+     --pidfile $PIDFILE \
+     --retry 5
     if [ $? -eq 0 ] && [ -f $PIDFILE ]; then
       /bin/rm -rf $PIDFILE
     fi
