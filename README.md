@@ -82,7 +82,7 @@ default_attributes(
     'selenium' => {
       'install-dir' => '/usr/local/share/selenium',
       'log-dir' => '/var/log/selenium',
-      'version' => '2.41.0',
+      'version' => '2.44.0',
     },
     # Necessary configuration for Xvfb.
     'xvfb' => {
@@ -92,24 +92,6 @@ default_attributes(
   }
 )
 ```
-
-## Firefox Notes
-
-Firefox will issue the following complaint if launched standalone on a display
-managed by Xvfb:
-
-```
- Xlib: extension "RANDR" missing on display ":10"
-```
-
-The recommended solution is to launch Xvfb with this option:
-
-```
--extension RANDR
-```
-
-As of Q4 2013 this does not at prevent the above error message, however.
-Fortunately the message is not fatal and Firefox will still work just fine.
 
 ## PhantomJS Notes
 

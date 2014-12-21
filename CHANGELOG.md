@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.6
+
+  * Update default Selenium version to 2.44.0.
+  * Remove some old documentation.
+
 ## v0.0.5
 
   * Update default Selenium version to 2.41.0.
