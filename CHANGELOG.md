@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.0.7
+
+  * Add -nolisten tcp to the Xvfb arguments to lock it down to localhost access.
+  * Add debug option comments to the Selenium init.d script.
+
 ## v0.0.6
 
   * Update default Selenium version to 2.44.0.

@@ -26,6 +26,9 @@ PIDFILE=/var/run/${NAME}.pid
 XVFB_ARGS=:<%= node['protractor-selenium-server']['xvfb']['display'] %>
 XVFB_ARGS="$XVFB_ARGS -extension RANDR"
 XVFB_ARGS="$XVFB_ARGS -noreset -ac -screen <%= node['protractor-selenium-server']['xvfb']['display'] %> <%= node['protractor-selenium-server']['xvfb']['resolution'] %>"
+# This one locks down Xvfb so that other servers cannot access its port. We want
+# it accessible for localhost only.
+XVFB_ARGS="$XVFB_ARGS -nolisten tcp"
 
 set -e
 

@@ -1,7 +1,7 @@
 name              'protractor-selenium-server'
 license           'MIT'
 description       'Set up a machine to be ready to use Protractor for AngularJS end to end testing.'
-version           '0.0.6'
+version           '0.0.7'
 recipe            'protractor', 'Set up the machine with Protractor and its dependencies.'
 recipe            'protractor::services', 'Set up services for Xvfb and Selenium.'
 

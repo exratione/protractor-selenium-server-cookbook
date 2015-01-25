@@ -21,6 +21,12 @@ JAR_FILE=<%= node['protractor-selenium-server']['selenium']['install-dir'] %>/se
 LOG_FILE=<%= node['protractor-selenium-server']['selenium']['log-dir'] %>/selenium.log
 
 DAEMON_OPTS="-Xmx500m -Xss1024k -jar $JAR_FILE -log $LOG_FILE"
+
+# These two items can be useful for debugging, but do generate very large
+# log files when enabled. Note that you need to have -debug set in order to see
+# browser-side logging.
+# DAEMON_OPTS="$DAEMON_OPTS -debug -browserSideLog"
+
 # See this Stack Overflow item for a delightful bug in Java that requires the
 # strange-looking java.security.egd workaround below:
 # http://stackoverflow.com/questions/14058111/selenium-server-doesnt-bind-to-socket-after-being-killed-with-sigterm
