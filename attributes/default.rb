@@ -9,4 +9,4 @@ default['protractor-selenium-server']['selenium']['log-dir'] = '/var/log/seleniu
 default['protractor-selenium-server']['selenium']['user'] = 'selenium'
 
 # The version of Selenium standalone server to install.
-default['protractor-selenium-server']['selenium']['version'] = '2.44.0'
+default['protractor-selenium-server']['selenium']['version'] = '2.45.0'

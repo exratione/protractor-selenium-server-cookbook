@@ -82,7 +82,7 @@ default_attributes(
     'selenium' => {
       'install-dir' => '/usr/local/share/selenium',
       'log-dir' => '/var/log/selenium',
-      'version' => '2.44.0',
+      'version' => '2.45.0',
     },
     # Necessary configuration for Xvfb.
     'xvfb' => {
